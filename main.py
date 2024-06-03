@@ -22,7 +22,8 @@ class TaskManager(object):
     def add_task(self, title: str, description: str) -> None:
         self.__tasks.append(Task(title, description))
 
-    def get_tasks(self) -> List[Task]:
+    @property
+    def tasks(self) -> List[Task]:
         return self.__tasks
 
 
@@ -32,7 +33,7 @@ if __name__ == '__main__':
     task_manager.add_task("Задача 1", "Описание задачи 1")
     task_manager.add_task("Задача 2", "Описание задачи 2")
 
-    tasks = task_manager.get_tasks()
+    tasks = task_manager.tasks
     for idx, task in enumerate(tasks, start=1):
         print(f"Задача {idx}: {task.title} - {task.description}")
 
